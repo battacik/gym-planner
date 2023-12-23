@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Aplikacja Gym Planner</title>
+    <!--<link rel="stylesheet" th:href="@{/styles.css}" />-->
+</head>
+<body>
+<h1>Przygotuj swoje ćwiczenie!</h1></br>
+<body style="background-color: #fcf7f5">
+<!--<img th:src="@{/images/logoSpookyBooky.png}"/>-->
+
+<form method="POST" th:object="${createTraining}">
+    <div class="grid">
+        <div class="exercises-list-group" id="1">
+            <h3>Wybierz ćwiczenie</h3>
+            <h4>ARMS</h4>
+            <div th:each="exercise : ${arms}">
+                <!--gdy kliknie się jedną wartość to zostanie przesłane
+                id jako jedna z wartości parametru book-list-->
+                <input name="exercisesList" type="checkbox" th:value="${exercise.id}" />
+                <span th:text="${exercise.name}"/>
+            </div>
+            <h4>LEGS</h4>
+            <div th:each="exercise : ${legs}">
+                <!--gdy kliknie się jedną wartość to zostanie przesłane
+                id jako jedna z wartości parametru book-list-->
+                <input name="exercisesList" type="checkbox" th:value="${exercise.id}" />
+                <span th:text="${exercise.name}"/>
+            </div>
+            <h4>CHEST</h4>
+            <div th:each="exercise : ${chest}">
+                <!--gdy kliknie się jedną wartość to zostanie przesłane
+                id jako jedna z wartości parametru book-list-->
+                <input name="exercisesList" type="checkbox" th:value="${exercise.id}" />
+                <span th:text="${exercise.name}"/>
+            </div>
+            <h4>BACK</h4>
+            <div th:each="exercise : ${back}">
+                <!--gdy kliknie się jedną wartość to zostanie przesłane
+                id jako jedna z wartości parametru book-list-->
+                <input name="exercisesList" type="checkbox" th:value="${exercise.id}" />
+                <span th:text="${exercise.name}"/>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h3>Nadaj nazwę przygotowanemu treningowi:</h3>
+        <input type="text" th:field="*{name}"/>
+        <br/>
+        <button>Zapisz swoje ćwiczenie</button>
+    </div>
+</form>
+</body>
+</html>

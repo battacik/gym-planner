@@ -1,14 +1,14 @@
-package pl.battacik.bookstore;
+package pl.battacik.gymplanner;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 //@SpringBootConfiguration + @EnableAutoConfiguration + @ComponentScan
 @SpringBootApplication
-public class BookStoreApplication {
+public class GymPlannerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BookStoreApplication.class, args);
+		SpringApplication.run(GymPlannerApplication.class, args);
 	}
 
 }

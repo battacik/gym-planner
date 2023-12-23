@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Aplikacja Gym Planner</title>
+</head>
+<body>
+    <form method="POST" th:object="${exerciseDetails}" th:action="@{/dayplan}">
+    <a th:href="@{/create}" id="another">Przygotuj kolejny trening</a><br/>
+        <div th:if="${#fields.hasErrors()}">
+            <span class="validationError">
+                Błąd! Spróbuj ponownie
+            </span>
+        </div>
+        <h3>Szczegóły ćwiczenia</h3>
+
+        <label for="description">Opis</label>
+        <input type="text"  id="description" th:field="*{description}"/></br>
+
+        <label for="date">Planowana data</label><!--name to pole formularza, a th:field wiąże z obiektem modelu danych-->
+        <input type="date"  id="date" th:field="*{date}"/>
+
+
+
+        <h3>Lista ćwiczeń</h3>
+        <div th:each="exercise : ${exerciseDetails.training}">
+
+            <!--TODO: Spróbować naprawić pobieranie danych z poprzednio zapisanych w treningu-->
+
+            <input type="text" th:field="exercise.name}" />
+            <span th:text="${exercise.name}"/>
+        </div>
+
+
+    </form>
+</body>
+</html>

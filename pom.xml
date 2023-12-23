@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>pl.battacik</groupId>
-	<artifactId>book-store</artifactId>
+	<artifactId>gym-planner</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>book-store</name>
 	<description>Book store web application</description>

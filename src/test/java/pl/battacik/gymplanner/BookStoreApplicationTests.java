@@ -1,4 +1,4 @@
-package pl.battacik.bookstore;
+package pl.battacik.gymplanner;
 
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
