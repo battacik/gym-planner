@@ -1,4 +1,4 @@
-package pl.battacik.gymplanner.web;
+package pl.battacik.gymplanner.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -6,25 +6,26 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.battacik.gymplanner.DayPlan;
-import pl.battacik.gymplanner.Exercise;
+import org.springframework.web.bind.annotation.RestController;
+import pl.battacik.gymplanner.model.Exercise;
+import pl.battacik.gymplanner.model.Training;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static pl.battacik.gymplanner.Exercise.*;
-import static pl.battacik.gymplanner.Exercise.Type.*;
+import static pl.battacik.gymplanner.model.Exercise.*;
+import static pl.battacik.gymplanner.model.Exercise.Type.*;
 
 @Slf4j //tworzy obiekt Logger (log)
 @Controller //kandydat do skanowania komponentu i utworzenia SearchBooksController jako komponentu bean
-@RequestMapping("/create")
+@RequestMapping("/new/training")
 public class ExerciseCreateController {
         @GetMapping
         public String showExerciseForm(Model model){
             int maxId = 0;
             List<Exercise> allExercises = new ArrayList<>();
 
-        // Dodanie przykładowych dzieł
+            // Dodanie przykładowych ćwiczeń
             allExercises.add(new Exercise(maxId++,"Triceps Press", ARMS));
             allExercises.add(new Exercise(maxId++,"Leg Press", LEGS));
             allExercises.add(new Exercise(maxId++,"Barbell Curl", ARMS));
@@ -51,7 +52,7 @@ public class ExerciseCreateController {
     @PostMapping
     public String processCreate(Training training){
       log.info("Przetwarzanie projektu ćwiczeń: " + training);
-      return "redirect:/create/details"; //po zakończeniu przekierowanie
+      return "redirect:/new/training/details"; //po zakończeniu przekierowanie
     }
 
     List<Exercise> filterByType(List<Exercise> itemsList, Exercise.Type type){

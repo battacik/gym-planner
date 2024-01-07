@@ -1,4 +1,4 @@
-package pl.battacik.gymplanner;
+package pl.battacik.gymplanner.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
